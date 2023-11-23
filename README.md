@@ -17,6 +17,9 @@ Lorsque les cours qui nous été enseignés portaient sur les données et notamm
 
 Le système d’information à travers son modèle se devra être capable de décrire :
 
+Le schéma relationnel, en date du 23 novembre 2023 est le suivant :
+![Schéma relationnel](https://i.imgur.com/yI8Jmcd.png)
+
 ### _Pokémon_
 
 -	Un pokémon se doit d’être identifiable avec un identifiant unique
