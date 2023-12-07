@@ -1,6 +1,10 @@
 from psycopg2 import connect
 
 class DatabaseConnection(object):
+    """
+    Singleton instance of a database connection.
+    """
+
     __DB_NAME: str = "zasuetoj"
     __DB_HOST: str = "flora.db.elephantsql.com"
     __DB_USER: str = "zasuetoj"
@@ -12,7 +16,7 @@ class DatabaseConnection(object):
             self.instance = super(DatabaseConnection, self).__new__(self)
         return self.instance
     
-    def __init__(self):
+    def __init__(self) -> None:
         self.__instance = connect(database=self.__DB_NAME,
                                 host=self.__DB_HOST,
                                 user=self.__DB_USER,
@@ -23,6 +27,9 @@ class DatabaseConnection(object):
         self.__cursor = self.__instance.cursor()
         return self.__cursor
     
-    def close(self):
+    def commit(self) -> None:
+        self.__instance.commit()
+    
+    def close(self) -> None:
         self.__cursor.close()
         self.__instance.close()
