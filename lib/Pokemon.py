@@ -22,6 +22,9 @@ class Pokemon:
     def printData(self, showStats: bool) -> None:
         print(f"Pokedex -> #{self.__id} is {self.__name} : {self.____printStats() if showStats else ''}")
 
+    def getId(self) -> int:
+        return self.__id
+
     def insertInto(self, databaseCursor) -> None:
         try:
             Request(databaseCursor, "INSERT INTO pokemons VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)", (self.__id, self.__name, self.__height, self.__weight, self.__baseHealth, self.__baseAttack, self.__baseDefense, self.__baseSpecialAttack, self.__baseSpecialDefense, self.__baseSpeed, self.__generationId))
