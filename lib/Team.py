@@ -15,5 +15,6 @@ class Team:
     def addPokemonToTeam(databaseCursor, trainer: Trainer, pokemon: Pokemon):
         try:
             Request(databaseCursor, "INSERT INTO trainers_pokemons VALUES (%s, %s)", (trainer.getId(), pokemon.getId()))
+            print(f"Added {pokemon.getName()} to {trainer.getName()}'s team.")
         except Exception as e: 
             print(e)

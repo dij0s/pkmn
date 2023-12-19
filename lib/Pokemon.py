@@ -16,14 +16,17 @@ class Pokemon:
         self.__baseSpeed: int = baseSpeed
         self.__generationId: int = generationId
 
+    def getId(self) -> int:
+        return self.__id
+    
+    def getName(self) -> str:
+        return self.__name
+
     def __printStats(self) -> str:
         return f"height {self.__height}, weight {self.__weight}, baseHealth {self.__baseHealth}, baseAttack {self.__baseAttack}, baseDefense {self.__baseDefense}, baseSpecialAttack {self.__baseSpecialAttack}, baseSpecialDefense {self.__baseSpecialDefense}, baseSpeed {self.__baseSpeed}, generationId {self.__generationId}"
     
     def printData(self, showStats: bool) -> None:
         print(f"Pokedex -> #{self.__id} is {self.__name} : {self.____printStats() if showStats else ''}")
-
-    def getId(self) -> int:
-        return self.__id
 
     def insertInto(self, databaseCursor) -> None:
         try:
